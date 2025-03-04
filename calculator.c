@@ -13,16 +13,107 @@ float expo(float a);
 double si(double a);
 double co(double a);
 double ta(double a);
+void MatAdd(int r,int c){
+    int mat1[r][c],mat2[r][c],sum[r][c];
+    for(int i = 0;i<r;i++){
+        for(int j = 0;j<c;j++){
+            printf("enter the element of first matrix");
+            scanf("%d",&mat1[i][j]);
+        }
+    }
+    for(int i = 0;i<r;i++){
+        for(int j = 0;j<c;j++){
+            printf("enter the element of second matrix");
+            scanf("%d",&mat2[i][j]);
+        }
+    }
+    for(int i = 0;i<r;i++){
+        for(int j = 0;j<c;j++){
+          sum[i][j] = mat1[i][j]+mat2[i][j];
+        }
+    }
+    for(int i = 0;i<r;i++){
+        for(int j = 0;j<c;j++){
+         printf("%d\t",sum[i][j]);
+        }
+        printf("\n");
+    }
+}
+void MatSub(int r,int c){
+    int mat1[r][c],mat2[r][c],diff[r][c];
+    for(int i = 0;i<r;i++){
+        for(int j = 0;j<c;j++){
+            printf("enter the element of first matrix");
+            scanf("%d",&mat1[i][j]);
+        }
+    }
+    for(int i = 0;i<r;i++){
+        for(int j = 0;j<c;j++){
+            printf("enter the element of second matrix");
+            scanf("%d",&mat2[i][j]);
+        }
+    }
+    for(int i = 0;i<r;i++){
+        for(int j = 0;j<c;j++){
+          diff[i][j] = mat1[i][j]+mat2[i][j];
+        }
+    }
+    for(int i = 0;i<r;i++){
+        for(int j = 0;j<c;j++){
+      printf("%d\t",diff[i][j]);
+        }
+        printf("\n");
+    }
+    
 
+    }
+    int MatPro(int r1,int c1,int r2,int c2){
+        int mat1[r1][c1],mat2[r2][c2];
+        for(int i = 0;i<r1;i++){
+            for(int j = 0;j<c1;j++){
+                printf("enter the element of first matrix");
+                scanf("%d",&mat1[i][j]);
+            }
+        }
+        for(int i = 0;i<r2;i++){
+            for(int j = 0;j<c2;j++){
+                printf("enter the element of second matrix");
+                scanf("%d",&mat2[i][j]);
+            }
+        }
+        int pro[r1][c2];
+        for(int i = 0;i<r1;i++){
+            for(int j = 0;j<c2;j++){
+                pro[i][j] = 0;
+            }
+        }
+        for(int i = 0;i<r1;i++){
+            for(int j = 0;j<c2;j++){
+                for(int k = 0;k<c1;k++){
+                    pro[i][j]+=mat1[i][k]*mat2[k][j];
+                }
+            
+            }
+        }
+    for(int i = 0;i<r1;i++){
+        for(int j = 0;j<c2;j++){
+          printf("%d\t",pro[i][j]);
+        }
+        printf("\n");
+    }
+        
+    
+        }
 int main(){
-float num1,num2;
+float num1,num2,op;
 double sinx,cosx,tanx,rad,result1,deg;
-int num;
+int num,rows,columns,rows1,column1;
 double pi = PI;
 
-printf("1: Addition\n2:Subtraction\n3:Multiplication\n4:Division\n5:Log10\n6:loge\n7:log to base of x\n8:e^x\n9:sine\n10:cosine\n11:tangent\n12:cosecant\n13:secant\n14cotangent\n");
-printf("choose which operation to be done");
+printf("1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Log10\n6.loge\n7.log to base of x\n8.e^x\n9.sine\n10.cosine\n11.tangent\n12.cosecant\n13.secant\n14.cotangent\n15.Matrix Addition\n16.Matrix Subtraction\n17.Matrix Multiplication\n18.Exit\n");
+printf("choose which operation to be done:");
 scanf("%d",&num);
+
 switch(num){
     case 1: printf("enter any two numbers:");
     scanf("%f%f",&num1,&num2);
@@ -137,10 +228,31 @@ break;
         printf("cot(%lf) = %0.2lf",deg,result1);
     }
     break;
+    case 15:printf("enter the no of rows and columns:");
+    scanf("%d%d",&rows,&columns);
+    MatAdd(rows,columns);
+    break;
+    case 16:printf("enter the no of rows and columns:");
+    scanf("%d%d",&rows,&columns);
+    MatSub(rows,columns);
+    break;
+
+    case 17:printf("enter the no of rows and columns of first matrix:");
+    scanf("%d%d",&rows,&columns);
+    printf("enter the no of rows and columns of second matrix:");
+    scanf("%d%d",&rows1,&column1);
+    MatPro(rows,columns,rows1,column1);
+    break;
+     
+    case 18:
+    printf("bye!\n");
+    return 0;
+    break;
 
     default:printf("invalid value");
 
 }
+
 return 0;
 
 }
@@ -217,4 +329,7 @@ void add(float a, float b){
         return(float)log_ba;
     }
     }
-    
+
+   
+       
+
